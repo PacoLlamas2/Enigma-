@@ -12,7 +12,6 @@ def main():
     while seguir:
         mostrar_menu()
         opcio = input("Selecciona una opció: ")
-
         if opcio == '1':
             xifrar_missatge()
         elif opcio == '2':
