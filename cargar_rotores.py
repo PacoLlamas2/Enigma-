@@ -21,3 +21,11 @@ def carregar_rotor3():
         return cont3
     except FileNotFoundError:
         print("El tercer rotor no s'ha carregat.")
+
+def leer_rotor(rotorfile):
+    try:
+        with open(rotorfile, "r") as file:
+            con = file.readlines()
+        return con
+    except FileNotFoundError:
+        print("El rotor no s'ha carregat.")

@@ -17,15 +17,15 @@ def main():
         else:
             mostrar_menu()
             opcio = input("Selecciona una opció: ")
-            if opcio == '1':
+            if opcio == "1":
                 xifrar_missatge()
-            elif opcio == '2':
+            elif opcio == "2":
                 desxifrar_missatge()
-            elif opcio == '3':
-                ##EMPIEZO POR ESTE
-                
-                editar_rotors() 
-            elif opcio == '4':
+            elif opcio == "3":
+                ##EMPIEZO POR ESTE  
+                opcion=input("Quin rotor vols editar?(1,2 o 3): ")        
+                editar_rotors(opcion) 
+            elif opcio == "4":
                 print("Sortint...")
                 seguir = False
             else:
