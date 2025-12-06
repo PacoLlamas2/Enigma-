@@ -1,0 +1,23 @@
+def carregar_rotor1():
+    try:
+        with open("rotor1.txt", "r") as file1:
+            cont1 = file1.read()
+        return cont1
+    except FileNotFoundError:
+        print("El primer rotor no s'ha carregat.")
+
+def carregar_rotor2():
+    try:
+        with open("rotor2.txt", "r") as file2:
+            cont2 = file2.read()
+        return cont2
+    except FileNotFoundError:
+        print("El segon rotor no s'ha carregat")
+
+def carregar_rotor3():
+    try:
+        with open("rotor3.txt", "r") as file3:
+            cont3 = file3.read()
+        return cont3
+    except FileNotFoundError:
+        print("El tercer rotor no s'ha carregat.")
