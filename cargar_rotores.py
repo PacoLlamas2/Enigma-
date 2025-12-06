@@ -29,3 +29,10 @@ def leer_rotor(rotorfile):
         return con
     except FileNotFoundError:
         print("El rotor no s'ha carregat.")
+
+def escribir_rotor(rotorfile, permutacion, notch):
+    try:
+        with open(rotorfile, "w") as file:
+            file.write(permutacion + "\n" + notch)
+    except FileNotFoundError:
+        print("El rotor no s'ha escrit.")
