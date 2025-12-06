@@ -1,4 +1,4 @@
-from cargar_rotores import *
+from files_enigma import *
 from validacions import *
 import variables
 notchdefecto="Z"
@@ -28,7 +28,13 @@ def window_setting():
             print("Configuracio de la finestra no valida")
     return posi
 
-
+def neteja_missatge():
+    missatge=read_missatge()
+    missatgenet = ""
+    for caracter in missatge.upper():
+        if caracter.isalpha(): 
+            missatgenet += caracter
+    return missatgenet
 
 def xifrar_missatge(posi):
     pass
