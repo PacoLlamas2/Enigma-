@@ -1,5 +1,5 @@
 from funcions_engima import *
-from rotores import *
+from cargar_rotores import *
 def mostrar_menu():
     print("\nENIGMA:")
     print("-------------------------------")
