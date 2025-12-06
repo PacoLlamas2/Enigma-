@@ -18,6 +18,8 @@ def main():
             mostrar_menu()
             opcio = input("Selecciona una opció: ")
             if opcio == "1":
+                posi=window_setting()
+                print(posi)
                 xifrar_missatge()
             elif opcio == "2":
                 desxifrar_missatge()

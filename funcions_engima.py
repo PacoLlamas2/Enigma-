@@ -1,7 +1,36 @@
 from cargar_rotores import *
-from validaciones import *
+from validacions import *
+import variables
 notchdefecto="Z"
-def xifrar_missatge():
+
+def window_setting():
+    seguir=True
+    while seguir:
+        con=0
+        try:
+            windowsel=input("Introdueix les 3 posicions de la finestra (p.ex. A B C): ")
+            windowslist=windowsel.split()
+            if len(windowslist) != 3:
+                seguir=True
+            else:
+                posi = []
+                for windowsstr in windowslist:
+                    windowsstr=windowsstr.upper()
+                    for integer, alpha in enumerate(variables.window):
+                        if windowsstr == alpha:
+                            posi.append(integer)
+                if len(posi) != 3:
+                    raise ValueError("Configuracio de la finestra no valida1")
+                else:
+                    print("Configuracio de la finestra validada correctament")
+                    seguir=False
+        except ValueError:
+            print("Configuracio de la finestra no valida")
+    return posi
+
+
+
+def xifrar_missatge(posi):
     pass
 
 def desxifrar_missatge():
