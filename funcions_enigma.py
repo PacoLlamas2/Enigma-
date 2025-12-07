@@ -47,6 +47,18 @@ def neteja_missatge():
         missatgegrup += grup + " "
     return missatgegrup
 
+
+def split_rotor():
+    rotor1=carregar_rotor1()
+    rotor2=carregar_rotor2()
+    rotor3=carregar_rotor3()
+    lineas = rotor1.split("\n")
+    cablejatrotor1 = lineas[0]
+    lineas = rotor2.split("\n")
+    cablejatrotor2 = lineas[0]
+    lineas = rotor3.split("\n")
+    cablejatrotor3 = lineas[0]
+    return cablejatrotor1, cablejatrotor2, cablejatrotor3
 def desxifrar_missatge():
     pass
 
