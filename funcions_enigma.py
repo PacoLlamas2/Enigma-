@@ -59,6 +59,35 @@ def split_rotor():
     lineas = rotor3.split("\n")
     cablejatrotor3 = lineas[0]
     return cablejatrotor1, cablejatrotor2, cablejatrotor3
+
+def split_rotor_notch():
+    rotors = [carregar_rotor1(), carregar_rotor2(), carregar_rotor3()]
+    cablejatlist = []
+    notchelist = []
+    for rotor in rotors:
+        lineas = rotor.split("\n")
+        cablejatlist.append(lineas[0])
+        if len(lineas) > 1:
+            notchelist.append(lineas[1].strip())
+        else:
+            notchelist.append(notchdefecto)
+    return cablejatlist, notchelist
+
+def pasar_rotorandnotch(rotorsel):
+    cablejatlist, notchelist = split_rotor_notch()
+    if rotorsel == "rotor1":
+        return cablejatlist[0], notchelist[0]
+    elif rotorsel == "rotor2":
+        return cablejatlist[1], notchelist[1]
+    elif rotorsel == "rotor3":
+        return cablejatlist[2], notchelist[2]
+    else:
+        raise ValueError("Rotor no valid")
+
+def rotor(index, posi, rotor):
+    for posrotor, lletrarotor in enumerate(rotor):
+        print((posrotor, lletrarotor))
+
 def desxifrar_missatge():
     pass
 
