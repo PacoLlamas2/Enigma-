@@ -65,12 +65,15 @@ def split_rotor_notch():
     cablejatlist = []
     notchelist = []
     for rotor in rotors:
-        lineas = rotor.split("\n")
-        cablejatlist.append(lineas[0])
+        #Separar el texto en líneas
+        lineas = rotor.strip().splitlines()
+        # lineas[0] es la cadena o primera linea del rotor
+        cablejatlist.append(lineas[0].strip())
+        # lineas[1] es el notch
         if len(lineas) > 1:
             notchelist.append(lineas[1].strip())
         else:
-            notchelist.append(notchdefecto)
+            notchelist.append("Z") 
     return cablejatlist, notchelist
 
 def pasar_rotorandnotch(rotorsel):
