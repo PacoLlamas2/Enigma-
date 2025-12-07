@@ -11,6 +11,13 @@ def entrada_rotor_salida(index, posi, rotor, notch):
             salida_final = (salida_rotor - posi) % 26
             return salida_final
     return 0
+
+def xifrat_format(xifrat):
+    xifratambformat = ""
+    for i in range(0, len(xifrat), 5):
+        grup = xifrat[i : i+5]
+        xifratambformat += grup + " "
+    return xifratambformat
 def xifrar_missatge(posi, missatge):
     rotor1, notch1 = pasar_rotorandnotch("rotor1")
     rotor2, notch2 = pasar_rotorandnotch("rotor2")
@@ -37,7 +44,6 @@ def xifrar_missatge(posi, missatge):
                 pasades+=1
             lletra_cifrada = variables.NUM_LLETRA[lletrares]
             xifrat += lletra_cifrada
-    print(xifrat)
     return xifrat
             
         

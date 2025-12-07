@@ -20,16 +20,16 @@ def main():
             opcio = input("Selecciona una opció: ")
             if opcio == "1":
                 posi=window_setting()
-                print(posi)
                 missatge=input("Introdueix el missatge que vols xifrar: ")
-                write_missatge(missatge)
+                write_missatge(variables.Missatgefile,missatge)
                 missatgenet=neteja_missatge()
-                print(missatgenet)
-                xifrar_missatge(posi, missatgenet)
+                xifrat=xifrar_missatge(posi, missatgenet)
+                xifratambformat=xifrat_format(xifrat)
+                write_missatge(variables.Xifratfile,xifratambformat)
+                
             elif opcio == "2":
                 desxifrar_missatge()
             elif opcio == "3":
-                ##EMPIEZO POR ESTE  
                 opcion=input("Quin rotor vols editar?(1,2 o 3): ")        
                 editar_rotors(opcion) 
             elif opcio == "4":

@@ -21,3 +21,7 @@ NUM_LLETRA = {
     16: "Q", 17: "R", 18: "S", 19: "T", 20: "U", 21: "V", 22: "W", 23: "X",
     24: "Y", 25: "Z"
 }
+
+
+Missatgefile="Missatge.txt"
+Xifratfile="Xifrat.txt"
