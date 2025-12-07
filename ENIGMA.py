@@ -1,5 +1,6 @@
-from funcions_engima import *
-from cargar_rotores import *
+from funcions_enigma import *
+from files_enigma import *
+from xifrar_enigma import *
 def mostrar_menu():
     print("\nENIGMA:")
     print("-------------------------------")
@@ -18,7 +19,13 @@ def main():
             mostrar_menu()
             opcio = input("Selecciona una opció: ")
             if opcio == "1":
-                xifrar_missatge()
+                posi=window_setting()
+                print(posi)
+                missatge=input("Introdueix el missatge que vols xifrar: ")
+                write_missatge(missatge)
+                missatgenet=neteja_missatge()
+                print(missatgenet)
+                xifrar_missatge(posi, missatgenet)
             elif opcio == "2":
                 desxifrar_missatge()
             elif opcio == "3":
