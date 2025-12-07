@@ -47,6 +47,50 @@ def neteja_missatge():
         missatgegrup += grup + " "
     return missatgegrup
 
+
+def split_rotor():
+    rotor1=carregar_rotor1()
+    rotor2=carregar_rotor2()
+    rotor3=carregar_rotor3()
+    lineas = rotor1.split("\n")
+    cablejatrotor1 = lineas[0]
+    lineas = rotor2.split("\n")
+    cablejatrotor2 = lineas[0]
+    lineas = rotor3.split("\n")
+    cablejatrotor3 = lineas[0]
+    return cablejatrotor1, cablejatrotor2, cablejatrotor3
+
+def split_rotor_notch():
+    rotors = [carregar_rotor1(), carregar_rotor2(), carregar_rotor3()]
+    cablejatlist = []
+    notchelist = []
+    for rotor in rotors:
+        #Separar el texto en líneas
+        lineas = rotor.strip().splitlines()
+        # lineas[0] es la cadena o primera linea del rotor
+        cablejatlist.append(lineas[0].strip())
+        # lineas[1] es el notch
+        if len(lineas) > 1:
+            notchelist.append(lineas[1].strip())
+        else:
+            notchelist.append("Z") 
+    return cablejatlist, notchelist
+
+def pasar_rotorandnotch(rotorsel):
+    cablejatlist, notchelist = split_rotor_notch()
+    if rotorsel == "rotor1":
+        return cablejatlist[0], notchelist[0]
+    elif rotorsel == "rotor2":
+        return cablejatlist[1], notchelist[1]
+    elif rotorsel == "rotor3":
+        return cablejatlist[2], notchelist[2]
+    else:
+        raise ValueError("Rotor no valid")
+
+def rotor(index, posi, rotor):
+    for posrotor, lletrarotor in enumerate(rotor):
+        print((posrotor, lletrarotor))
+
 def desxifrar_missatge():
     pass
 

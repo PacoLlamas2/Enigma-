@@ -37,9 +37,9 @@ def escribir_rotor(rotorfile, permutacion, notch):
     except FileNotFoundError:
         print("El rotor no s'ha escrit.")
 
-def write_missatge(missatge):
+def write_missatge(file,missatge):
     try:
-        with open("missatge.txt", "w", encoding="utf-8") as file:
+        with open(file, "w", encoding="utf-8") as file:
             file.write(missatge)
     except FileNotFoundError:
         print("El missatge no s'ha escrit.")
