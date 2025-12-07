@@ -1,5 +1,6 @@
 from funcions_enigma import *
 from files_enigma import *
+from xifrar_enigma import *
 def mostrar_menu():
     print("\nENIGMA:")
     print("-------------------------------")
@@ -24,7 +25,7 @@ def main():
                 write_missatge(missatge)
                 missatgenet=neteja_missatge()
                 print(missatgenet)
-                xifrar_missatge(posi)
+                xifrar_missatge(posi, missatgenet)
             elif opcio == "2":
                 desxifrar_missatge()
             elif opcio == "3":

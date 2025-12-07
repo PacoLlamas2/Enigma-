@@ -30,14 +30,22 @@ def window_setting():
 
 def neteja_missatge():
     missatge=read_missatge()
-    missatgenet = ""
-    for caracter in missatge.upper():
+    missatgesense=""
+    for caracter in missatge:
+        if caracter in variables.diclletres:
+            missatgesense += variables.diclletres[caracter]
+        else:
+            missatgesense += caracter
+    missatgesense=missatgesense.upper()
+    missatgesep = ""
+    for caracter in missatgesense:
         if caracter.isalpha(): 
-            missatgenet += caracter
-    return missatgenet
-
-def xifrar_missatge(posi):
-    pass
+            missatgesep += caracter
+    missatgegrup = ""
+    for i in range(0, len(missatgesep), 5):
+        grup = missatgesep[i : i+5]
+        missatgegrup += grup + " "
+    return missatgegrup
 
 def desxifrar_missatge():
     pass
