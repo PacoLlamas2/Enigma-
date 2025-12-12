@@ -25,3 +25,4 @@ NUM_LLETRA = {
 
 Missatgefile="Missatge.txt"
 Xifratfile="Xifrat.txt"
+notchdefecto="Z"

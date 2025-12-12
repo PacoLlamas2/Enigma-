@@ -1,6 +1,7 @@
 from funcions_enigma import *
 from files_enigma import *
 from xifrar_enigma import *
+#Funcio per mostrar el menu principal
 def mostrar_menu():
     print("\nENIGMA:")
     print("-------------------------------")
@@ -9,6 +10,7 @@ def mostrar_menu():
     print("3. Editar rotors")
     print("4. Sortir")
 
+#Funcio principal, amb el bucle per seleccionar l'opcio y executar la funcio o funcions corresponents
 def main():
     seguir = True
     while seguir:
@@ -38,4 +40,5 @@ def main():
             else:
                 print("Opció no vàlida, torna-ho a provar.")
 
+#Funcio principal
 main()

@@ -2,7 +2,7 @@ from files_enigma import *
 from funcions_enigma import *
 import variables
 
-
+#Funcio per calcular la entrada del rotor i la seva posicio i retornar la salida del rotor i la seva posicio
 def entrada_rotor_salida(index, posi, rotor, notch):
     indexreal = (index + posi) % 26
     for posrotor, lletrarotor in enumerate(rotor):
@@ -12,12 +12,15 @@ def entrada_rotor_salida(index, posi, rotor, notch):
             return salida_final
     return 0
 
+#Funcio per formatar el xifrat i retornar-lo sense espais i en majuscules
 def xifrat_format(xifrat):
     xifratambformat = ""
     for i in range(0, len(xifrat), 5):
         grup = xifrat[i : i+5]
         xifratambformat += grup + " "
     return xifratambformat
+
+#Funcio per xifrar el missatge i retornar-lo
 def xifrar_missatge(posi, missatge):
     rotor1, notch1 = pasar_rotorandnotch("rotor1")
     rotor2, notch2 = pasar_rotorandnotch("rotor2")
@@ -26,6 +29,7 @@ def xifrar_missatge(posi, missatge):
     notchlist=[notch1, notch2, notch3]
     xifrat=""
     mouarotor2=False
+    #Bucle per xifrar el missatge, lletra per lletra del missatge pasada per la funcio neteja_missatge
     for lletra in missatge:
         if lletra in variables.LLETRA_NUM:
             lletrares=variables.LLETRA_NUM[lletra]
