@@ -28,19 +28,24 @@ def xifrar_missatge(posi, missatge):
     rotorlist=[rotor1, rotor2, rotor3]
     notchlist=[notch1, notch2, notch3]
     xifrat=""
-    mouarotor2=False
     #Bucle per xifrar el missatge, lletra per lletra del missatge pasada per la funcio neteja_missatge
     for lletra in missatge:
         if lletra in variables.LLETRA_NUM:
             lletrares=variables.LLETRA_NUM[lletra]
-            ##Condicion si la posicion del rotor1 es igual a al notch del rotor1 se mueve el rotor2
-            if posi[0] == variables.LLETRA_NUM[notchlist[0]]:
-                mouarotor2=True
-                posi[1] = (posi[1] + 1) % 26
-                ##Condicion si la posicion del rotor2 es igual a al notch del rotor2 se mueve el rotor3
+            #Condicio si la posicio del rotor1 es igual al notch del rotor1, es mou el rotor2
+            mover_rotor2 = (posi[0] == variables.LLETRA_NUM[notchlist[0]])
+            # Condicio si el rotor 3 es te que moure
+            # Nomes si el rotor 2 es mura i ademes si adems el rotor2 esta en el seu notch
+            mover_rotor3 = False
+            if mover_rotor2:
                 if posi[1] == variables.LLETRA_NUM[notchlist[1]]:
-                    posi[2] = (posi[2] + 1) % 26
-            ##MOVER EL ROTOR1-->Esto siempre se cumple
+                    mover_rotor3 = True
+            # Aplicar el moviment dels rotors
+            if mover_rotor3:
+                posi[2] = (posi[2] + 1) % 26
+            if mover_rotor2:
+                posi[1] = (posi[1] + 1) % 26
+            #MOVER EL ROTOR1-->Esto siempre se cumple
             posi[0] = (posi[0] + 1) % 26
             pasades=0
             while pasades < 3:
