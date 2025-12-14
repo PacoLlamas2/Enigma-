@@ -33,14 +33,15 @@ ENIGMA:
 3. Editar rotors
 4. Sortir
 """
-# Validem que estem en el directori correcte agafant la ruta absoluta del fitxer actual
+# Validem que estem en el directori correcte agafant la ruta absoluta del fitxer actual en src
 DIR = os.path.dirname(os.path.abspath(__file__))
-# Pugem un nivell per trobar la rel o root del projecte on esta el enigma.py
+# Pugem un nivell per trobar la rel o root del projecte on esta el enigma.py 
 BASE = os.path.dirname(DIR)
 # Definim les rutes absolutes
 Ruta_rotors = os.path.join(BASE, "config", "rotors_enigma")
 Missatgefile = os.path.join(BASE, "data", "Missatge.txt")
 Xifratfile = os.path.join(BASE, "data", "Xifrat.txt")
+Desxifratfile = os.path.join(BASE, "data", "Desxifrat.txt")
 # Noms de fitxers del rotor
 rotor1 = "rotor1.txt"
 rotor2 = "rotor2.txt"

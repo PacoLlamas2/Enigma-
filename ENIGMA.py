@@ -29,8 +29,9 @@ def main():
                 posi=window_setting()
                 mensaje=read_missatge(variables.Xifratfile)
                 desxifrat=desxifrar_missatge(posi,mensaje)
+                write_missatge(variables.Desxifratfile,desxifrat)
                 num_lletres = len(desxifrat)
-                print(f"[OK] Missatge desxifrat: {desxifrat} ({num_lletres} lletres)")
+                print(f"[OK] Missatge desxifrat a {variables.Desxifratfile}: {desxifrat} ({num_lletres} lletres)")
             elif opcio == "3":
                 opcion=input("Quin rotor vols editar?(1,2 o 3): ")        
                 editar_rotors(opcion) 
