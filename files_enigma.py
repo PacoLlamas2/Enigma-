@@ -1,7 +1,10 @@
+from variables import *
+import os
 #Funcio per carregar els rotors
 def carregar_rotor1():
     try:
-        with open("rotor1.txt", "r") as file1:
+        path = os.path.join(Ruta_rotors, "rotor1.txt")
+        with open(path, "r") as file1:
             cont1 = file1.read()
         return cont1
     except FileNotFoundError:
@@ -9,7 +12,8 @@ def carregar_rotor1():
 
 def carregar_rotor2():
     try:
-        with open("rotor2.txt", "r") as file2:
+        path = os.path.join(Ruta_rotors, "rotor2.txt")
+        with open(path, "r") as file2:
             cont2 = file2.read()
         return cont2
     except FileNotFoundError:
@@ -17,7 +21,8 @@ def carregar_rotor2():
 
 def carregar_rotor3():
     try:
-        with open("rotor3.txt", "r") as file3:
+        path = os.path.join(Ruta_rotors, "rotor3.txt")
+        with open(path, "r") as file3:
             cont3 = file3.read()
         return cont3
     except FileNotFoundError:
@@ -26,7 +31,8 @@ def carregar_rotor3():
 #Funcio per llegir el rotor
 def leer_rotor(rotorfile):
     try:
-        with open(rotorfile, "r") as file:
+        path = os.path.join(Ruta_rotors, rotorfile)
+        with open(path, "r") as file:
             con = file.readlines()
         return con
     except FileNotFoundError:
@@ -35,7 +41,8 @@ def leer_rotor(rotorfile):
 #Funcio per escriure un nou rotor amb la seva permutacio i notch
 def escribir_rotor(rotorfile, permutacion, notch):
     try:
-        with open(rotorfile, "w") as file:
+        path = os.path.join(Ruta_rotors, rotorfile)
+        with open(path, "w") as file:
             file.write(permutacion + "\n" + notch)
     except FileNotFoundError:
         print("El rotor no s'ha escrit.")

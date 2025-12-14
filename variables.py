@@ -21,9 +21,20 @@ NUM_LLETRA = {
     16: "Q", 17: "R", 18: "S", 19: "T", 20: "U", 21: "V", 22: "W", 23: "X",
     24: "Y", 25: "Z"
 }
-
-
+MENU_PRINCIPAL = """
+ENIGMA:
+-------------------------------
+1. Xifrar missatge
+2. Desxifrar missatge
+3. Editar rotors
+4. Sortir
+"""
+Ruta_rotors="rotors_enigma"
 Missatgefile="Missatge.txt"
 Xifratfile="Xifrat.txt"
-notchdefecto="Z"
+rotor1="rotor1.txt"
+rotor2="rotor2.txt"
+rotor3="rotor3.txt" 
+notchdefecto="Z" 
 REGEXpermutador="[A-Z]{26}"
+REGEXnotch = "^[A-Z]$"
