@@ -3,12 +3,7 @@
 
 **Descripció**
 
-Aquest projecte consisteix en una recreació de la màquina enigma.
-L'enigma era una màquina que codificava missatges utilitzant un
-sistema de rotors amb les lletres del lafabeto en un ordre aleatori.
-S'utilitzava per a encriptar els mensajer de l'exercito alemany i
-Alan Turing crea un dispositiu per a desencriptar els missatges xifrats
-amb aquesta màquina.
+Aquest projecte consisteix en una recreació de la màquina Enigma. L'Enigma era una màquina que codificava missatges utilitzant un sistema de rotors amb les lletres de l'alfabet en un ordre aleatori. S'utilitzava per a encriptar els missatges de l'exèrcit alemany, i Alan Turing va crear un dispositiu per a desencriptar els missatges xifrats amb aquesta màquina.
 
 Aquest projecte inclou un menú interactiu per escollir entre les diferents funcionalitats:
 1.***Xifrar missatge:***
