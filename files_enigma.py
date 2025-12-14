@@ -47,9 +47,9 @@ def write_missatge(file,missatge):
     except FileNotFoundError:
         print("El missatge no s'ha escrit.")
 #Funcio per llegir el missatge normal o encriptat de un fitxer missatge.txt o xifrat.txt
-def read_missatge():
+def read_missatge(file):
     try:
-        with open("missatge.txt", "r", encoding="utf-8") as file:
+        with open(file, "r", encoding="utf-8") as file:
             missatge = file.read()
         return missatge
     except FileNotFoundError:

@@ -2,6 +2,7 @@ from funcions_enigma import *
 from files_enigma import *
 from xifrar_enigma import *
 from desxifrar_missatge import *
+from variables import *
 #Funcio per mostrar el menu principal
 def mostrar_menu():
     print("\nENIGMA:")
@@ -29,10 +30,11 @@ def main():
                 xifrat=xifrar_missatge(posi, missatgenet)
                 xifratambformat=xifrat_format(xifrat)
                 write_missatge(variables.Xifratfile,xifratambformat)
-                
             elif opcio == "2":
                 posi=window_setting()
-                desxifrar_missatge(posi, "Xifrat.txt")
+                mensaje=read_missatge(variables.Xifratfile)
+                desxifrat=desxifrar_missatge(posi,mensaje)
+                print("Missatge desxifrat: ", desxifrat)
             elif opcio == "3":
                 opcion=input("Quin rotor vols editar?(1,2 o 3): ")        
                 editar_rotors(opcion) 

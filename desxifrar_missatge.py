@@ -1,5 +1,3 @@
-
-#importar librerias personalizadas
 from files_enigma import *
 from funcions_enigma import *
 import variables
