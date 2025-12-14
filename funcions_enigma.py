@@ -30,7 +30,7 @@ def window_setting():
 
 #Funcio per netejar el missatge i retornar-lo sense espais, punts i comes i en majuscules, també retorna el missatge sense grups de 5
 def neteja_missatge():
-    missatge=read_missatge()
+    missatge=read_missatge(variables.Missatgefile)
     missatgesense=""
     for caracter in missatge:
         if caracter in variables.diclletres:
@@ -90,10 +90,41 @@ def pasar_rotorandnotch(rotorsel):
     else:
         raise ValueError("Rotor no valid")
 
-#Funcio per seleccionar el rotor i la seva posicio<--MIRAR FUNCIONALITAT
+#Funcio per seleccionar el rotor i la seva posicio
 def rotor(index, posi, rotor):
     for posrotor, lletrarotor in enumerate(rotor):
         print((posrotor, lletrarotor))
+
+#Funcio per moviment dels rotors i la seva posicio
+def moviment_rotors(posi, notchlist):
+    try:
+        #Condicio si la posicio del rotor1 es igual al notch del rotor1, es mou el rotor2
+        mover_rotor2 = (posi[0] == variables.LLETRA_NUM[notchlist[0]])
+        # Condicio si el rotor 3 es te que moure
+        # Nomes si el rotor 2 es mura i ademes si adems el rotor2 esta en el seu notch
+        mover_rotor3 = False
+        if mover_rotor2:
+            if posi[1] == variables.LLETRA_NUM[notchlist[1]]:
+                mover_rotor3 = True
+        # Aplicar el moviment dels rotors
+        if mover_rotor3:
+            posi[2] = (posi[2] + 1) % 26
+        if mover_rotor2:
+            posi[1] = (posi[1] + 1) % 26
+        #MOVER EL ROTOR1-->Esto siempre se cumple
+        posi[0] = (posi[0] + 1) % 26
+
+        return posi
+    except IndexError as ERRORv1:
+        print(f"[ERROR] {ERRORv1}")
+    except ValueError as ERRORv2:
+        print(f"[ERROR] {ERRORv2}")
+    except Exception as ERRORv3:
+        print(f"[ERROR] {ERRORv3}")
+
+
+
+
 
 #Funcio per editar els rotors i la seva posicio ademes de validar la configuracio
 def editar_rotors(opcion):
