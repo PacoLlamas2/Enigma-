@@ -90,6 +90,24 @@ def pasar_rotorandnotch(rotorsel):
     else:
         raise ValueError("Rotor no valid")
 
+
+def processar_dades_rotor(rotor):
+    try:
+        llista = []
+        if len(rotor) > 0:
+            rotor=rotor[0].strip()
+            llista.append(rotor)
+        else:
+            raise ValueError("No hi ha cap permutacio")
+        if len(rotor) > 1:
+            rotor=rotor[1].strip()
+            llista.append(rotor)
+        else:   
+            llista.append(variables.notchdefecto)
+        return llista
+    except Exception as error:
+        print(f"[ERROR] {error}")
+    
 #Funcio per seleccionar el rotor i la seva posicio
 def rotor(index, posi, rotor):
     for posrotor, lletrarotor in enumerate(rotor):
@@ -139,7 +157,6 @@ def editar_rotors(opcion):
                 notch = con[1].strip()
             #Crea una variable per la permutacio i valida que sigui una permutacio valida
             continuar=True
-
             while continuar:
                 permutacio=input(f"Permutacio nova per el rotor{opcion}: ")
                 try:
@@ -164,9 +181,7 @@ def editar_rotors(opcion):
                 notch=variables.notchdefecto   
             #Escriu el rotor amb la nova permutacio i el nou notch
             escribir_rotor(rotorfile, permut, notch)
-            print("Rotor editat correctament")
-            print(f"Nou contingut del rotor: {permut}, Notch: {notch}")
-            
+            print(f"[OK] Rotor editat correctament: {permut}, Notch: {notch}")
     except ValueError:
         print("[ERROR] L'opció introduïda no és un número.")
     except Exception as e:

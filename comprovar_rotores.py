@@ -1,39 +1,36 @@
 import os
-
-def comprovar_rotores(): #funcion principal
-    direccion = "rotores_maquina_enigma" #nombre de la carpeta
+import variables as var 
+from files_enigma import *
+from validacions import *
+from funcions_enigma import *
+def comprovar_rotores():
+    #Comprobacio que la carpeta de rotrs existeix
+    try: 
+        if os.path.exists(var.Ruta_rotors):
+            carpeta=os.listdir(var.Ruta_rotors)
+            if (var.rotor1 in carpeta) and (var.rotor2 in carpeta) and (var.rotor3 in carpeta):
+                print("[OK] Tots els rotors estan disponibles")
+            else:
+                raise FileNotFoundError("Un o més rotors no estan disponibles") 
+        else:
+            raise FileNotFoundError("La carpeta no existeix")
         
-    try: #control de error en case de que no exista
-        carpeta = os.listdir(direccion)
-    except FileNotFoundError:
-        print("Error: la carpeta no existe")
-        return
-    
-    for rotor in carpeta: 
-        if rotor.endswith(".txt"): #seleccion de todos los archivos txt en la carpeta
-            ruta = os.path.join(direccion, rotor)
-            with open (ruta, "r") as f: #abrir el archivo como lectura
-                contenido_rotor = f.read().strip()
-                    
-                longitud_correcta = len(contenido_rotor) == 26 #comprovacion de longitud
-                    
-                no_caracteres_repetidos = False #comprovacion de caracteres repetidos
-                verificador = ""
-                    
-                for letra in contenido_rotor:
-                    if letra not in verificador:
-                        verificador += letra
-                    else:
-                        break
-                        
-                if len(contenido_rotor) == len(verificador):
-                    no_caracteres_repetidos = True
-                
-                if longitud_correcta and no_caracteres_repetidos: #comprovacion de parametros y informe de errores, si se encuentran
-                    print(f"El rotor {rotor} es correcto\n")
-                elif longitud_correcta == False:
-                    print(f"Hay un error con la longitud del rotor {rotor}.\n")
+    except Exception as error:
+        print(f"[ERROR] {error}")
+        return False
+    try:
+        for rotor in carpeta:
+            contingut=leer_rotor(rotor)
+            permutacio_notch=processar_dades_rotor(contingut)
+            if not permutacio_notch:
+                raise ValueError(f"Contingut buit del {rotor}")
+            else:
+                if validar_permutacio(permutacio_notch[0]) and validar_notch(permutacio_notch[1]):
+                    print(f"[OK] El {rotor.split('.')[0]} es correcte")
                 else:
-                    print(f"Hay letras repetidas en el rotor {rotor}.\n")
-    if len(carpeta) == 0: #si no nay archivos, informar al usuario de que esta vacio
-        print("la capreta esta vacia")
+                    raise ValueError(f"El {rotor.split('.')[0]} no es correcte")
+        return True
+    except Exception as error:
+        print(f"[ERROR] {error}")
+        return False
+    
