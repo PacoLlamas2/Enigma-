@@ -1,0 +1,1 @@
+# __init__.py perquè Python ho reconegui com un paquet la carpeta src

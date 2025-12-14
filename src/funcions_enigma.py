@@ -8,7 +8,7 @@ def window_setting():
     while seguir:
         con=0
         try:
-            windowsel=input("Introdueix les 3 posicions de la finestra (p.ex. A B C): ")
+            windowsel=input("Introdueix les 3 posicions de la finestra en format correcte amb espais entre elles (p.ex. A B C): ")
             windowslist=windowsel.split()
             if len(windowslist) != 3:
                 seguir=True
