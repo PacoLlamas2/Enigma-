@@ -1,10 +1,10 @@
-from funcions_enigma import *
-from files_enigma import *
-from xifrar_enigma import *
-from desxifrar_missatge import *
-from variables import *
-from comprovar_rotores import *
-     
+from src.funcions_enigma import *
+from src.files_enigma import *
+from src.xifrar_enigma import *
+from src.desxifrar_missatge import *
+from src.variables import *
+from src.comprovar_rotores import *
+
 #Funcio principal, amb el bucle per seleccionar l'opcio y executar la funcio o funcions corresponents
 def main():
     if not comprovar_rotores():
@@ -42,3 +42,4 @@ def main():
 
 #Funcio principal
 main()
+

@@ -1,5 +1,5 @@
 import re
-import variables
+import src.variables as variables
 def validar_rep(texto):
     try:
         llista=[]

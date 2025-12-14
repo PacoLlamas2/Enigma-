@@ -1,6 +1,6 @@
-from files_enigma import *
-from funcions_enigma import *
-import variables
+from src.files_enigma import *
+from src.funcions_enigma import *
+import src.variables as variables
 
 #Funcio per calcular la entrada del rotor i la seva posicio i retornar la salida del rotor i la seva posicio
 def entrada_rotor_salida(index, posi, rotor):
