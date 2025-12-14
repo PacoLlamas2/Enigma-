@@ -7,15 +7,15 @@ Aquest projecte consisteix en una recreació de la màquina Enigma. L'Enigma era
 
 Aquest projecte inclou un menú interactiu per escollir entre les diferents funcionalitats:
 1.***Xifrar missatge:***
-- El programa demana el missatge i la posició inicial dels rotors.
+- El programa demana el missatge i la posició inicial dels rotors y el guardara a `data/Missatge.txt`.
 - Neteja el missatge: elimina números, accents i caràcters especials.
 - Agrupa les lletres resultants en **blocs de 5 lletres majúscules** separades per un espai.
 - Processa el missatge pels 3 rotors. Quan un rotor arriba al seu **Notch**, fa girar el següent.
-- Guarda el resultat a `data/Missatge.txt` i el mostra per pantalla.
+- Guarda el resultat a `data/Xifrat.txt`.
 
 2.***Desxifrar missatge:***
 - El procés és invers al de xifratge. El missatge passa pels rotors configurats per desxifrar, recuperant el text original.
-- El resultat es guarda en un arxiu `data/Xifrat.txt`.
+- El resultat es guarda en un arxiu `data/Desxifrat.txt`.
 
 3.***Editar rotors:***
 - Permet a l'usuari editar la configuració interna dels rotors, la permutació i el notch.
