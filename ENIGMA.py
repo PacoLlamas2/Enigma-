@@ -1,6 +1,9 @@
 from funcions_enigma import *
 from files_enigma import *
 from xifrar_enigma import *
+from desxifrar_missatge import *
+from variables import *
+#Funcio per mostrar el menu principal
 def mostrar_menu():
     print("\nENIGMA:")
     print("-------------------------------")
@@ -9,6 +12,7 @@ def mostrar_menu():
     print("3. Editar rotors")
     print("4. Sortir")
 
+#Funcio principal, amb el bucle per seleccionar l'opcio y executar la funcio o funcions corresponents
 def main():
     seguir = True
     while seguir:
@@ -26,9 +30,11 @@ def main():
                 xifrat=xifrar_missatge(posi, missatgenet)
                 xifratambformat=xifrat_format(xifrat)
                 write_missatge(variables.Xifratfile,xifratambformat)
-                
             elif opcio == "2":
-                desxifrar_missatge()
+                posi=window_setting()
+                mensaje=read_missatge(variables.Xifratfile)
+                desxifrat=desxifrar_missatge(posi,mensaje)
+                print("Missatge desxifrat: ", desxifrat)
             elif opcio == "3":
                 opcion=input("Quin rotor vols editar?(1,2 o 3): ")        
                 editar_rotors(opcion) 
@@ -38,4 +44,5 @@ def main():
             else:
                 print("Opció no vàlida, torna-ho a provar.")
 
+#Funcio principal
 main()

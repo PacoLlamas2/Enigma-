@@ -1,8 +1,8 @@
 from files_enigma import *
 from validacions import *
 import variables
-notchdefecto="Z"
 
+#Funcio per configurar la finestra, validarla i retornar la posicio de les 3 finestres
 def window_setting():
     seguir=True
     while seguir:
@@ -28,6 +28,7 @@ def window_setting():
             print("Configuracio de la finestra no valida")
     return posi
 
+#Funcio per netejar el missatge i retornar-lo sense espais, punts i comes i en majuscules, també retorna el missatge sense grups de 5
 def neteja_missatge():
     missatge=read_missatge()
     missatgesense=""
@@ -47,7 +48,7 @@ def neteja_missatge():
         missatgegrup += grup + " "
     return missatgegrup
 
-
+#Funcio per separar el rotor en cablejat 
 def split_rotor():
     rotor1=carregar_rotor1()
     rotor2=carregar_rotor2()
@@ -60,6 +61,7 @@ def split_rotor():
     cablejatrotor3 = lineas[0]
     return cablejatrotor1, cablejatrotor2, cablejatrotor3
 
+#Funcio per separar el rotor en cablejat i notch
 def split_rotor_notch():
     rotors = [carregar_rotor1(), carregar_rotor2(), carregar_rotor3()]
     cablejatlist = []
@@ -76,6 +78,7 @@ def split_rotor_notch():
             notchelist.append("Z") 
     return cablejatlist, notchelist
 
+#Funcio per seleccionar el rotor i la seva posicio
 def pasar_rotorandnotch(rotorsel):
     cablejatlist, notchelist = split_rotor_notch()
     if rotorsel == "rotor1":
@@ -87,25 +90,29 @@ def pasar_rotorandnotch(rotorsel):
     else:
         raise ValueError("Rotor no valid")
 
+#Funcio per seleccionar el rotor i la seva posicio<--MIRAR FUNCIONALITAT
 def rotor(index, posi, rotor):
     for posrotor, lletrarotor in enumerate(rotor):
         print((posrotor, lletrarotor))
 
-def desxifrar_missatge():
-    pass
-
+#Funcio per editar els rotors i la seva posicio ademes de validar la configuracio
 def editar_rotors(opcion):
     try:
+        #Demana quin rotor vols editar i valida que sigui un rotor valid entre el rotor 1, rotor 2 i rotor 3
         opcion=int(opcion)
+        #Si el rotor no es valid, torna-ho a provar
         if opcion not in [1, 2, 3]:
             print("Rotor no valid")
         else:
+            #Si l'opcio es valida, crea una variable per llegir el rotor
             rotorfile = (f"rotor{opcion}.txt")
             con=leer_rotor(rotorfile)
+            #Si el rotor te notch, ho guarda, si no, el notch sera "Z"
             if len(con) > 1:
                 notch = con[1].strip()
             else:
-                notch = notchdefecto
+                notch = variables.notchdefecto
+            #Crea una variable per la permutacio i valida que sigui una permutacio valida
             continuar=True
             while continuar:
                 permutacio=input(f"Permutacio nova per el rotor{opcion}: ")
@@ -118,6 +125,7 @@ def editar_rotors(opcion):
                         continuar=False
                 except ValueError:
                     print("Permutacio no valida")
+            #Si vols canviar el notch, demana el nou notch i valida que sigui un notch valid
             quieres=input("Quieres cambiar el notch? (s/n): ")
             if quieres.lower() == "s":
                 notch=input("Nou notch: ")
@@ -127,8 +135,8 @@ def editar_rotors(opcion):
                 else:
                     print("Notch validada correctament")
             else:
-                notch=notchdefecto
-
+                notch=variables.notchdefecto   
+            #Escriu el rotor amb la nova permutacio i el nou notch
             escribir_rotor(rotorfile, permut, notch)
             print("Rotor editat correctament")
             print(f"Nou contingut del rotor: {permut}, Notch: {notch}")
