@@ -1,7 +1,8 @@
 # Enigma-
-#Simulació Màquina Enigma
+##Simulació Màquina Enigma
 
-##Descripció
+**Descripció**
+
 Aquest projecte consisteix en una recreació de la màquina enigma.
 L'enigma era una màquina que codificava missatges utilitzant un
 sistema de rotors amb les lletres del lafabeto en un ordre aleatori.
