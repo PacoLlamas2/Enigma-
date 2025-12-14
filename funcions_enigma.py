@@ -122,10 +122,6 @@ def moviment_rotors(posi, notchlist):
     except Exception as ERRORv3:
         print(f"[ERROR] {ERRORv3}")
 
-
-
-
-
 #Funcio per editar els rotors i la seva posicio ademes de validar la configuracio
 def editar_rotors(opcion):
     try:
@@ -141,15 +137,14 @@ def editar_rotors(opcion):
             #Si el rotor te notch, ho guarda, si no, el notch sera "Z"
             if len(con) > 1:
                 notch = con[1].strip()
-            else:
-                notch = variables.notchdefecto
             #Crea una variable per la permutacio i valida que sigui una permutacio valida
             continuar=True
+
             while continuar:
                 permutacio=input(f"Permutacio nova per el rotor{opcion}: ")
                 try:
-                    permut=permutacio.upper()
-                    if len(permut) != 26 or validar_rep(permut) == False:
+                    permut=permutacio.upper().strip()
+                    if not validar_permutacio(permut):
                         raise ValueError
                     else:
                         print("Permutacio validada correctament")
@@ -160,8 +155,8 @@ def editar_rotors(opcion):
             quieres=input("Quieres cambiar el notch? (s/n): ")
             if quieres.lower() == "s":
                 notch=input("Nou notch: ")
-                notch=notch.upper()
-                if len(notch) != 1:
+                notch=notch.upper().strip()
+                if len(notch) != 1 and not notch.isalpha():
                     raise ValueError
                 else:
                     print("Notch validada correctament")
@@ -173,6 +168,8 @@ def editar_rotors(opcion):
             print(f"Nou contingut del rotor: {permut}, Notch: {notch}")
             
     except ValueError:
-        print("Rotor no valid")
+        print("[ERROR] L'opció introduïda no és un número.")
+    except Exception as e:
+        print(f"[ERROR] Ha fallat l'edició del rotor: {e}")
 
         
