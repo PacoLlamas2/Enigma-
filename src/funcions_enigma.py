@@ -1,6 +1,6 @@
-from files_enigma import *
-from validacions import *
-import variables
+from src.files_enigma import *
+from src.validacions import *
+import src.variables as variables
 
 #Funcio per configurar la finestra, validarla i retornar la posicio de les 3 finestres
 def window_setting():

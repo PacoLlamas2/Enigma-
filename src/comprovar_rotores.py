@@ -1,8 +1,8 @@
 import os
-import variables as var 
-from files_enigma import *
-from validacions import *
-from funcions_enigma import *
+import src.variables as var 
+from src.files_enigma import *
+from src.validacions import *
+from src.funcions_enigma import *
 def comprovar_rotores():
     #Comprobacio que la carpeta de rotrs existeix
     try: 

@@ -1,6 +1,6 @@
-from files_enigma import *
-from funcions_enigma import *
-import variables
+from src.files_enigma import *
+from src.funcions_enigma import *
+import src.variables as variables
 
 # Funcio que calcula el camí invers. Amb el rotor i la posicio, busca quina era l'entrada original
 def salida_rotor_entrada(index, posi, rotor):

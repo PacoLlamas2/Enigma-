@@ -1,4 +1,4 @@
-from variables import *
+from src.variables import *
 import os
 #Funcio per carregar els rotors
 def carregar_rotor1():
